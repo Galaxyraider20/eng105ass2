@@ -135,14 +135,14 @@ function PhotoStrip({
 export default function Home() {
   return (
     <main className="relative overflow-hidden pb-24">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.12),transparent_18%,transparent_82%,rgba(255,255,255,0.1))]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_top,_rgba(219,150,82,0.30),_transparent_58%)]" />
-      <div className="pointer-events-none absolute left-[-8rem] top-80 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(198,126,69,0.18),_transparent_65%)] blur-3xl" />
-      <div className="pointer-events-none absolute right-[-8rem] top-32 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(162,86,41,0.18),_transparent_65%)] blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 top-[34rem] h-px bg-[linear-gradient(90deg,transparent,rgba(67,42,24,0.18),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04),transparent_18%,transparent_82%,rgba(255,255,255,0.03))]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40rem] bg-[radial-gradient(circle_at_top,_rgba(219,150,82,0.18),_transparent_58%)]" />
+      <div className="pointer-events-none absolute left-[-8rem] top-80 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(198,126,69,0.12),_transparent_65%)] blur-3xl" />
+      <div className="pointer-events-none absolute right-[-8rem] top-32 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(162,86,41,0.12),_transparent_65%)] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 top-[34rem] h-px bg-[linear-gradient(90deg,transparent,rgba(255,244,230,0.10),transparent)]" />
 
       <section className="mx-auto flex w-full max-w-7xl flex-col px-6 pb-18 pt-8 sm:px-10 lg:px-12">
-        <div className="grid grid-cols-3 items-center border-b border-stone-900/10 pb-4 text-[0.72rem] uppercase tracking-[0.32em] text-stone-600">
+        <div className="grid grid-cols-3 items-center border-b border-white/10 pb-4 text-[0.72rem] uppercase tracking-[0.32em] text-stone-400">
           <p>Photo Essay</p>
           <p className="text-center">ENG 105</p>
           <p className="text-right">Tempe, Arizona</p>
@@ -151,35 +151,35 @@ export default function Home() {
         <div className="grid items-center gap-10 pb-8 pt-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:pt-18">
           <div className="max-w-3xl space-y-7">
             <div className="space-y-5">
-              <p className="text-sm uppercase tracking-[0.35em] text-amber-800/80">
+              <p className="text-sm uppercase tracking-[0.35em] text-amber-300/80">
                 Rachit Miharia
               </p>
-              <h1 className="font-[family:var(--font-display)] text-6xl leading-[0.92] text-stone-900 sm:text-7xl lg:text-[7.25rem]">
+              <h1 className="font-[family:var(--font-display)] text-6xl leading-[0.92] text-stone-100 sm:text-7xl lg:text-[7.25rem]">
                 A Mountain
               </h1>
               <div className="hero-rule flex items-center gap-4 pt-2">
-                <span className="h-px w-24 bg-stone-900/20" />
+                <span className="h-px w-24 bg-white/15" />
                 <span className="text-[0.7rem] uppercase tracking-[0.28em] text-stone-500">
                   Tempe at night
                 </span>
               </div>
             </div>
 
-            <p className="max-w-2xl text-lg leading-8 text-stone-700 sm:text-[1.22rem]">
+            <p className="max-w-2xl text-lg leading-8 text-stone-300 sm:text-[1.22rem]">
               A photo essay about a place that can feel public and private at
               the same time: crowded for some people, calming for others, and
               unexpectedly alive even in the middle of the night.
             </p>
 
-            <div className="rounded-[2rem] border border-white/60 bg-white/72 p-6 shadow-[0_24px_70px_rgba(74,48,28,0.10)] backdrop-blur-sm sm:p-8">
+            <div className="rounded-[2rem] border border-white/10 bg-white/6 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-md sm:p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-stone-500">
                 Final Reflection
               </p>
-              <p className="mt-4 font-[family:var(--font-display)] text-[2rem] leading-tight text-stone-900 sm:text-[2.5rem]">
+              <p className="mt-4 font-[family:var(--font-display)] text-[2rem] leading-tight text-stone-100 sm:text-[2.5rem]">
                 While this hike is a social spot for many people, for me
                 personally, it is the opposite.
               </p>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-stone-700">
+              <p className="mt-4 max-w-2xl text-base leading-8 text-stone-300">
                 I come here alone, or maybe with a very close friend to cool
                 off, and just relax with a nice view and music playing through
                 my headphones.
@@ -188,8 +188,8 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <div className="absolute -left-6 top-8 hidden h-24 w-24 rounded-full border border-white/60 bg-white/50 blur-sm lg:block" />
-            <div className="grid grid-cols-2 gap-4 rounded-[2rem] border border-white/45 bg-white/42 p-3 shadow-[0_28px_90px_rgba(74,46,24,0.12)] backdrop-blur-sm">
+            <div className="absolute -left-6 top-8 hidden h-24 w-24 rounded-full border border-white/10 bg-white/6 blur-sm lg:block" />
+            <div className="grid grid-cols-2 gap-4 rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_28px_90px_rgba(0,0,0,0.28)] backdrop-blur-md">
               {photos.slice(0, 4).map((photo, index) => (
                 <figure
                   key={photo.src}
@@ -217,31 +217,31 @@ export default function Home() {
         {sections.map((section) => (
           <article
             key={section.number}
-            className="section-card relative overflow-hidden rounded-[2rem] border border-white/55 bg-white/56 p-5 shadow-[0_22px_70px_rgba(74,48,28,0.08)] backdrop-blur-sm sm:p-7 lg:p-8"
+            className="section-card relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/6 p-5 shadow-[0_22px_70px_rgba(0,0,0,0.24)] backdrop-blur-md sm:p-7 lg:p-8"
           >
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(161,101,58,0.78),rgba(226,188,139,0.58),transparent)]" />
-            <div className="pointer-events-none absolute right-6 top-6 h-20 w-20 rounded-full border border-stone-900/6 bg-[radial-gradient(circle,rgba(255,255,255,0.34),transparent_70%)]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgba(212,143,79,0.82),rgba(255,214,160,0.38),transparent)]" />
+            <div className="pointer-events-none absolute right-6 top-6 h-20 w-20 rounded-full border border-white/6 bg-[radial-gradient(circle,rgba(255,255,255,0.10),transparent_70%)]" />
             <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
               <div className="space-y-5">
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-200 bg-[linear-gradient(180deg,#fff4e2,#f1d5b1)] text-lg font-semibold text-amber-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-amber-300/20 bg-[linear-gradient(180deg,rgba(90,62,39,0.88),rgba(46,33,23,0.95))] text-lg font-semibold text-amber-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
                     {section.number}
                   </span>
                   <div>
                     <p className="text-xs uppercase tracking-[0.32em] text-stone-500">
                       {section.eyebrow}
                     </p>
-                    <h2 className="mt-2 font-[family:var(--font-display)] text-3xl leading-tight text-stone-900 sm:text-4xl">
+                    <h2 className="mt-2 font-[family:var(--font-display)] text-3xl leading-tight text-stone-100 sm:text-4xl">
                       {section.title}
                     </h2>
                   </div>
                 </div>
 
-                <div className="space-y-5 text-[1.02rem] leading-8 text-stone-700 sm:text-[1.08rem]">
+                <div className="space-y-5 text-[1.02rem] leading-8 text-stone-300 sm:text-[1.08rem]">
                   {section.copy.map((paragraph) => (
                     <p
                       key={paragraph}
-                      className="whitespace-pre-line first-letter:mr-1 first-letter:font-[family:var(--font-display)] first-letter:text-4xl first-letter:leading-none first-letter:text-stone-900"
+                      className="whitespace-pre-line first-letter:mr-1 first-letter:font-[family:var(--font-display)] first-letter:text-4xl first-letter:leading-none first-letter:text-stone-100"
                     >
                       {fixText(paragraph)}
                     </p>
