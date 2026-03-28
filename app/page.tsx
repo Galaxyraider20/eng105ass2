@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const photos = [
   "01-obj-19.jpg",
   "02-obj-24.jpg",
@@ -35,6 +39,73 @@ const fixText = (text: string) =>
     .replaceAll("â€œ", '"')
     .replaceAll("â€", '"')
     .replaceAll("â€“", "-");
+
+function PhotoCard({
+  src,
+  alt,
+  label,
+  className,
+  imageClassName,
+  loading = "lazy",
+  onExpand,
+}: {
+  src: string;
+  alt: string;
+  label?: string;
+  className?: string;
+  imageClassName: string;
+  loading?: "eager" | "lazy";
+  onExpand?: (image: { src: string; alt: string }) => void;
+}) {
+  return (
+    <figure
+      className={`photo-card group relative rounded-[1.65rem] border border-white/45 bg-white/72 p-2 shadow-[0_24px_80px_rgba(80,52,24,0.12)] ${className ?? ""}`}
+    >
+      <div className="overflow-hidden rounded-[1.05rem]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt}
+          loading={loading}
+          className={`${imageClassName} w-full rounded-[1.05rem] object-cover transition duration-500 group-hover:scale-[1.04]`}
+        />
+      </div>
+
+      <button
+        type="button"
+        aria-label={`Expand ${alt}`}
+        onClick={() => onExpand?.({ src, alt })}
+        className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[rgba(20,14,10,0.38)] text-stone-100 backdrop-blur-sm transition hover:bg-[rgba(20,14,10,0.58)]"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M8 3H3v5" />
+          <path d="M16 3h5v5" />
+          <path d="M21 16v5h-5" />
+          <path d="M3 16v5h5" />
+          <path d="m3 8 6-5" />
+          <path d="m15 3 6 5" />
+          <path d="m21 16-6 5" />
+          <path d="m9 21-6-5" />
+        </svg>
+      </button>
+
+      {label ? (
+        <figcaption className="px-2 pb-1 pt-3 text-[0.68rem] uppercase tracking-[0.26em] text-stone-500">
+          {label}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
 
 const sections = [
   {
@@ -96,9 +167,11 @@ const sections = [
 function PhotoStrip({
   title,
   images,
+  onExpand,
 }: {
   title: string;
   images: { src: string; alt: string }[];
+  onExpand?: (image: { src: string; alt: string }) => void;
 }) {
   const gridClass =
     images.length === 1
@@ -110,29 +183,28 @@ function PhotoStrip({
   return (
     <div className={`grid gap-4 ${gridClass}`}>
       {images.map((image, index) => (
-        <figure
+        <PhotoCard
           key={`${title}-${image.src}`}
-          className={`photo-card group overflow-hidden rounded-[1.65rem] border border-white/45 bg-white/72 p-2 shadow-[0_24px_80px_rgba(80,52,24,0.12)] ${
+          src={image.src}
+          alt={image.alt}
+          label={`${title} / frame ${String(index + 1).padStart(2, "0")}`}
+          imageClassName="h-[280px] sm:h-[320px]"
+          onExpand={onExpand}
+          className={`${
             images.length >= 3 && index === 0 ? "sm:col-span-2" : ""
           }`}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image.src}
-            alt={image.alt}
-            loading="lazy"
-            className="h-[280px] w-full rounded-[1.05rem] object-cover transition duration-500 group-hover:scale-[1.035] sm:h-[320px]"
-          />
-          <figcaption className="px-2 pb-1 pt-3 text-[0.68rem] uppercase tracking-[0.26em] text-stone-500">
-            {title} / frame {String(index + 1).padStart(2, "0")}
-          </figcaption>
-        </figure>
+        />
       ))}
     </div>
   );
 }
 
 export default function Home() {
+  const [expandedPhoto, setExpandedPhoto] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
+
   return (
     <main className="relative overflow-hidden pb-24">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04),transparent_18%,transparent_82%,rgba(255,255,255,0.03))]" />
@@ -191,22 +263,17 @@ export default function Home() {
             <div className="absolute -left-6 top-8 hidden h-24 w-24 rounded-full border border-white/10 bg-white/6 blur-sm lg:block" />
             <div className="grid grid-cols-2 gap-4 rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_28px_90px_rgba(0,0,0,0.28)] backdrop-blur-md">
               {photos.slice(0, 4).map((photo, index) => (
-                <figure
+                <PhotoCard
                   key={photo.src}
-                  className={`photo-card overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/70 p-2 ${
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  imageClassName={index === 0 ? "h-[21rem]" : "h-[12rem]"}
+                  onExpand={setExpandedPhoto}
+                  className={`rounded-[1.75rem] border-white/40 bg-white/70 ${
                     index === 0 ? "col-span-2" : ""
                   }`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    className={`w-full rounded-[1.2rem] object-cover ${
-                      index === 0 ? "h-[21rem]" : "h-[12rem]"
-                    }`}
-                  />
-                </figure>
+                />
               ))}
             </div>
           </div>
@@ -250,7 +317,11 @@ export default function Home() {
               </div>
 
               <div className="lg:pl-2">
-                <PhotoStrip title={section.title} images={section.photos} />
+                <PhotoStrip
+                  title={section.title}
+                  images={section.photos}
+                  onExpand={setExpandedPhoto}
+                />
               </div>
             </div>
           </article>
@@ -270,6 +341,51 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <div
+        className={`fixed inset-0 z-50 hidden items-center justify-center bg-[rgba(8,6,5,0.58)] p-6 transition duration-300 md:flex ${
+          expandedPhoto
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setExpandedPhoto(null)}
+      >
+        {expandedPhoto ? (
+          <div
+            className="relative w-[min(88vw,64rem)] rounded-[1.5rem] border border-white/20 bg-[rgba(17,12,9,0.94)] p-3 shadow-[0_32px_120px_rgba(0,0,0,0.48)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close expanded image"
+              onClick={() => setExpandedPhoto(null)}
+              className="absolute right-5 top-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[rgba(20,14,10,0.55)] text-stone-100 backdrop-blur-sm transition hover:bg-[rgba(20,14,10,0.75)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              >
+                <path d="M6 6 18 18" />
+                <path d="M18 6 6 18" />
+              </svg>
+            </button>
+            <div className="overflow-hidden rounded-[1.1rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_50%),rgba(10,8,6,0.98)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={expandedPhoto.src}
+                alt={expandedPhoto.alt}
+                loading="lazy"
+                className="max-h-[82vh] w-full object-contain"
+              />
+            </div>
+          </div>
+        ) : null}
+      </div>
     </main>
   );
 }
