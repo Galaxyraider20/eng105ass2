@@ -59,7 +59,7 @@ function PhotoCard({
 }) {
   return (
     <figure
-      className={`photo-card group relative rounded-[1.65rem] border border-white/45 bg-white/72 p-2 shadow-[0_24px_80px_rgba(80,52,24,0.12)] ${className ?? ""}`}
+      className={`photo-card group relative rounded-[1.65rem] border border-white/12 bg-[rgba(22,18,16,0.92)] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.32)] ${className ?? ""}`}
     >
       <div className="overflow-hidden rounded-[1.05rem]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -122,7 +122,7 @@ const sections = [
     title: "The Trail Begins Quietly",
     eyebrow: "Trailhead",
     copy: [
-      `The hike starts off near the light rail station, which is quite empty. We can see the beginning of the trail and the path which leads to the rest of the hike. The path and the plants are contrasted by the building peeking out in the background with red lights.`,
+      `The hike starts off near the light rail station, which is quite empty. This photo was taken around 3 am in the night. We can see the very base of the trail and the stuff surrounding it. We can see that everything is very brightly lit up despite it not being in use. The stadium’s light is shining down brightly on the empty field inside it. Same goes for the light rail, which makes its last trip at 11pm. Let us start the climb.`,
     ],
     photos: pickPhotos("03-obj-25.jpg", "05-obj-32.jpg"),
   },
@@ -140,7 +140,7 @@ const sections = [
     title: "A Comfort Place",
     eyebrow: "Personal Space",
     copy: [
-      `For me, this is a space to wind down after a stressful day. Just beyond the railing, there a nice quiet spot where not many people show up. It has a very nice view, almost better than the very top, and it is a very calming experience to just sit there and listen to music while also cooling off after the hike. It has become my comfort place.`,
+      `I was always reluctant to come here earlier, because I had heard that it was a very short hike, and I didn’t think it was worth it. But one night I was bored and decided to go for a hike, and I’m really glad I made that choice. I saw a rough path to go higher than the normal trail would allow, and I decided to follow it. I found a really nice spot, with an amazing view. Since then, this space has become a place for me to wind down after a stressful day. It is a very calming experience to just sit there and listen to music while also cooling off after the hike. It has become my comfort place.`,
     ],
     photos: pickPhotos("09-obj-45.jpg", "10-obj-46.jpg"),
   },
@@ -149,8 +149,8 @@ const sections = [
     title: "A Social Summit",
     eyebrow: "Shared View",
     copy: [
-      `Surprisingly, this hike is a very social spot. I am sometimes surprised by the amount of people who are also here, often hanging out with friends or family. Iâ€™ve noticed this at a lot of varying times! From sunset all the way till 3 am, I always find some people still up here, some taking in the view, while some chatting with their friends. Surprisingly, some of them are even on their phones, with such a beautiful view right in front!`,
-    ],
+      `Surprisingly, this hike is a very social spot. I am surprised by the amount of people who are also here, often hanging out with friends or family. Iâ€™ve noticed this at a lot of varying times! From sunset all the way till 3 am, I always find some people still up here, some taking in the view, while some chatting with their friends. On the right hand side someone is on their phone, with such a beautiful view right in front of them. If you click on the zoom icon on the photo on the right, you can see a baby on a stroller-type mechanism, and their family standing near the edge, talking to people. This shows how people use this spot very differently. Some of them are using it to hang out with their friends, some of them are here for the hike, some of them are here for the amazing view, while some of them are here to spend some alone time. `,
+      ],
     photos: pickPhotos("11-obj-52.jpg"),
   },
   {
@@ -158,7 +158,7 @@ const sections = [
     title: "City Lights, Empty Streets",
     eyebrow: "At The Top",
     copy: [
-      `Finally, this is the view from the top. There is intense lighting all over the city and it is very bright, almost at 1 am. Even though the streets are pretty empty, and a lot of people are in their homes sleeping, from the top it looks like the city is bustling because of all the lights! On the other side, Tempe town lake is also visible which is a popular hangout spot for students. In conclusion, a mountain acts like an all in one spot where people come to escape the city and enjoy the view with their friends.`,
+      `Finally, this is the view from the top. There is intense lighting all over the city and it is very bright, even though it is 3 am. Even though the streets are pretty empty, and a lot of people are in their homes sleeping, from the top it looks like the city is bustling because of all the lights! The view is absolutely stunning, which is definitely a part of the reason people visit! On the other side, Tempe town lake is also visible which is a popular hangout spot for students. In conclusion, a mountain acts like an all in one spot where people come to escape the city and be alone, enjoy the view with their friends, or maybe just doing their own thing!`,
     ],
     photos: pickPhotos("12-obj-59.jpg", "01-obj-19.jpg"),
   },
@@ -245,16 +245,17 @@ export default function Home() {
 
             <div className="rounded-[2rem] border border-white/10 bg-white/6 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-md sm:p-8">
               <p className="text-sm uppercase tracking-[0.28em] text-stone-500">
-                Final Reflection
+                Thesis Statement
               </p>
               <p className="mt-4 font-[family:var(--font-display)] text-[2rem] leading-tight text-stone-100 sm:text-[2.5rem]">
                 While this hike is a social spot for many people, for me
                 personally, it is the opposite.
               </p>
               <p className="mt-4 max-w-2xl text-base leading-8 text-stone-300">
-                I come here alone, or maybe with a very close friend to cool
+                When I've had a hard day, I come here alone to cool
                 off, and just relax with a nice view and music playing through
-                my headphones.
+                my headphones. This had become by comfort place and through this essay,
+                I hope to show you why.
               </p>
             </div>
           </div>
@@ -270,7 +271,7 @@ export default function Home() {
                   loading={index === 0 ? "eager" : "lazy"}
                   imageClassName={index === 0 ? "h-[21rem]" : "h-[12rem]"}
                   onExpand={setExpandedPhoto}
-                  className={`rounded-[1.75rem] border-white/40 bg-white/70 ${
+                  className={`rounded-[1.75rem] border-white/14 bg-[rgba(24,19,17,0.94)] ${
                     index === 0 ? "col-span-2" : ""
                   }`}
                 />
@@ -334,10 +335,7 @@ export default function Home() {
             Closing Thoughts
           </p>
           <p className="mt-5 w-full font-[family:var(--font-display)] text-2xl leading-tight sm:text-4xl sm:leading-[1.08]">
-            While this hike is a social spot for many people, for me
-            personally, it is the opposite. I come here alone, or maybe with a
-            very close friend to cool off, and just relax with a nice view and
-            music playing through my headphones.
+            Hopefully, through this essay, I've convinced you that this hike can be whatever you want it to be. For me it is a comfort space, where I relax and listen to music. But for many others, it is a social spot to hangout with your friends and family, or even just spend time on your phone!
           </p>
         </div>
       </section>
@@ -352,7 +350,7 @@ export default function Home() {
       >
         {expandedPhoto ? (
           <div
-            className="relative w-[min(88vw,64rem)] rounded-[1.5rem] border border-white/20 bg-[rgba(17,12,9,0.94)] p-3 shadow-[0_32px_120px_rgba(0,0,0,0.48)]"
+            className="relative flex max-w-[min(88vw,64rem)] items-start justify-center rounded-[1.5rem] bg-[rgba(17,12,9,0.74)] p-3 shadow-[0_32px_120px_rgba(0,0,0,0.48)] backdrop-blur-md"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -374,13 +372,13 @@ export default function Home() {
                 <path d="M18 6 6 18" />
               </svg>
             </button>
-            <div className="overflow-hidden rounded-[1.1rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_50%),rgba(10,8,6,0.98)]">
+            <div className="inline-flex overflow-hidden rounded-[1.1rem] border border-white/14 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_50%),rgba(10,8,6,0.98)] shadow-[0_18px_60px_rgba(0,0,0,0.38)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={expandedPhoto.src}
                 alt={expandedPhoto.alt}
                 loading="lazy"
-                className="max-h-[82vh] w-full object-contain"
+                className="block max-h-[82vh] max-w-[calc(88vw-2.5rem)] w-auto object-contain"
               />
             </div>
           </div>
