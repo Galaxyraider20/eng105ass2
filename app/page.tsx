@@ -335,7 +335,7 @@ export default function Home() {
             Closing Thoughts
           </p>
           <p className="mt-5 w-full font-[family:var(--font-display)] text-2xl leading-tight sm:text-4xl sm:leading-[1.08]">
-            Hopefully, through this essay, I've convinced you that this hike can be whatever you want it to be. For me it is a comfort space, where I relax and listen to music. But for many others, it is a social spot to hangout with your friends and family, or even just spend time on your phone!
+            Hopefully, through this essay, I've convinced you that this hike can be whatever you want it to be. It doesn't have to just be a hike you do for exercise. For me it is a comfort space, where I relax and listen to music. But for many others, it is a social spot to hangout with your friends and family, or even just spend time on your phone!
           </p>
         </div>
       </section>
