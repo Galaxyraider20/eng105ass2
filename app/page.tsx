@@ -254,7 +254,7 @@ export default function Home() {
               <p className="mt-4 max-w-2xl text-base leading-8 text-stone-300">
                 When I've had a hard day, I come here alone to cool
                 off, and just relax with a nice view and music playing through
-                my headphones. This had become by comfort place and through this essay,
+                my headphones. This has become by comfort place and through this essay,
                 I hope to show you why.
               </p>
             </div>
